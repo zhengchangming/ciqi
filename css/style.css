@@ -1,0 +1,404 @@
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 使得宽度和高度的计算包含了padding和border */
+}
+
+/* 通用元素样式重置 */
+body, h1, h2, h3, p, ul, li, a {
+    text-decoration: none; /* 去掉链接下划线 */
+    list-style-type: none; /* 去掉列表项目标记 */
+    font-family: 'Arial', sans-serif; /* 设置字体，默认不使用衬线字体 */
+}
+
+/* 页首区域样式 */
+.header {
+    background-color: #f8f8f8;
+    overflow: hidden; /* 用于清除浮动，防止高度塌陷 */
+}
+
+.top {
+    padding: 10px 0;
+    text-align: center; /* 水平居中对齐文本 */
+}
+
+.logo {
+    vertical-align: middle; /* 设置图片垂直居中 */
+}
+
+/* 导航栏样式 */
+.nav ul {
+    padding: 0;
+    text-align: center; /* 在父容器中水平居中所有内容 */
+    background-color: #6e8eb5;
+}
+
+.nav li {
+    display: inline-block;
+    margin-right: -4px; /* 修正inline-block元素间隔的问题 */
+}
+
+.nav a {
+    display: block; /* 将链接转换为块级元素，可以让整个区域响应点击 */
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px; /* 设置字体大小 */
+}
+
+.nav a:hover {
+    background-color: #ddd; /* 鼠标悬停时的背景色 */
+    color: black;
+}
+
+/* 横幅图片样式 */
+.banner img {
+    width: 100%; /* 宽度设置为父容器的100% */
+    display: block; /* block以去除图片下方的空隙 */
+}
+
+/* 主要内容区样式 */
+.content {
+    display: flex; /* 使用弹性盒模型布局 */
+    padding-top: 20px;
+}
+
+.sidebar {
+    flex: 1; /* 侧边栏占用的比例 */
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.pro_box,
+.contact_box {
+    margin-bottom: 20px; /* 设置相邻元素间的间隔 */
+}
+
+.cont_right {
+    flex: 3; /* 主内容区占用的比例 */
+    padding: 0 20px; /* 内边距 */
+}
+
+/* 侧边栏标题样式 */
+.pro_box .tit h3,
+.contact_box .tit h3 {
+    background-color: #6e8eb5;
+    color: #fff; /* 纯白色字体 */
+    padding: 10px; /* 内边距 */
+    margin-bottom: 10px; /* 底部外边距 */
+}
+
+/* 侧边栏列表项样式 */
+.sidebar ul {
+    background-color: #fff;
+    border: 1px solid #ddd; /* 边框 */
+}
+
+.sidebar li {
+    padding: 10px; /* 列表项内边距 */
+    border-bottom: 1px solid #eee; /* 底部边框 */
+}
+
+.sidebar li:last-child {
+    border-bottom: none; /* 最后一个列表项底部无边框 */
+}
+
+.sidebar a {
+    color: #6e8eb5;
+}
+
+.sidebar a:hover {
+    background-color: #f8f8f8; /* 悬停背景色 */
+}
+
+/* 图片展示区样式 */
+.pic_show ul {
+    padding: 0;
+    display: flex; /* 弹性盒模型布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    gap: 10px; /* 图片之间的空隙 */
+}
+
+.pic_show li {
+    width: calc((100% - 30px) / 4); /* 计算宽度，四等分 */
+    border: 1px solid #ddd; /* 边框样式 */
+    border-radius: 4px; /* 边框圆角 */
+    overflow: hidden; /* 隐藏超出部分 */
+}
+
+.pic_show img {
+    width: 100%; /* 图片宽度填满容器 */
+    display: block; /* block以去除图片下方的空隙 */
+    transition: transform 0.3s ease-in-out; /* 切换效果 */
+}
+
+.pic_show img:hover {
+    transform: scale(1.1); /* 鼠标悬停时图片放大 */
+}
+
+/* 简介及页脚样式 */
+.jianjie {
+    margin-top: 20px; /* 上边距 */
+}
+
+.jianjie .title h3 {
+    margin-bottom: 10px; /* 标题下外边距 */
+}
+
+.jianjie .box img {
+    float: left; /* 左浮动 */
+    margin-right: 20px; /* 与右侧内容的间隙 */
+    width: 200px; /* 图片宽度 */
+}
+
+.jianjie .box p {
+    text-align: justify; /* 两端对齐 */
+    line-height: 1.6; /* 行高 */
+}
+
+.footer {
+    background-color: #6e8eb5;
+    color: #fff; /* 白色字体 */
+    text-align: center; /* 文本居中 */
+    padding: 15px 0; /* 内边距 */
+    margin-top: 20px; /* 上外边距 */
+}
+
+.footer p {
+    margin: 0; /* 段落无外边距 */
+}
+
+/* 响应式布局样式 */
+@media (max-width: 768px) {
+    /* 导航菜单在小屏幕上变为竖列布局 */
+    .nav li {
+        display: block;
+        text-align: left;
+    }
+
+    /* 内容区和侧边栏在小屏幕上调整布局 */
+    .content {
+        flex-direction: column; /* 列布局 */
+    }
+
+    .sidebar {
+        order: 2;
+        margin-top: 20px; /* 上外边距 */
+    }
+
+    .cont_right {
+        order: 1;
+    }
+
+    /* 在小屏幕上，改变图片展示区项目的展示数量 */
+    .pic_show ul {
+        justify-content: space-around; /* 间隔平分 */
+    }
+
+    .pic_show li {
+        width: calc((100% - 10px) / 2); /* 半份宽度 */
+    }
+
+    /* 简介区的图片在小屏幕上的调整 */
+    .jianjie .box img {
+        width: 100%; /* 宽度满屏 */
+        margin: 0 0 20px 0; /* 调整外边距 */
+        float: none; /* 取消浮动 */
+    }
+}
+
+@media (max-width: 480px) {
+    /* 小屏幕进一步调整导航菜单 */
+    .nav a {
+        padding: 10px 15px; /* 内边距调整 */
+        font-size: 14px; /* 字体大小调整 */
+    }
+
+    /* 小屏设备上图片展示区每行只显示一张图片 */
+    .pic_show li {
+        width: 100%; /* 宽度满屏 */
+    }
+
+    /* 小屏设备上的简介内容调整 */
+    .jianjie .box p {
+        font-size: 14px; /* 字体大小 */
+    }
+}
+
+/* 二级页面样式 */
+.tuwen .spirit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* 子项目顶部对齐 */
+    margin-bottom: 2em; /* 底部外边距 */
+}
+
+.tuwen .spright,
+.tuwen .spleft {
+    flex: 1; /* 平分空间 */
+    padding: 10px;
+}
+
+.tuwen .spleft img {
+    width: 100%;
+    height: auto; /* 保持图像原始宽高比 */
+    display: block; /* 防止图片底部出现空隙 */
+    margin: 0 auto; /* 图片置中 */
+}
+
+/* 对于小屏幕，调整文字和图片为堆叠布局 */
+@media (max-width: 768px) {
+    .tuwen .spirit {
+        flex-direction: column;
+    }
+
+    .tuwen .spleft,
+    .tuwen .spright {
+        flex-basis: 100%;
+    }
+}
+
+/* 清除潜在的样式影响 */
+.tuwen * {
+    box-sizing: border-box; /* 避免因为padding和border影响宽度和高度 */
+}
+
+/* 列表内容样式 */
+.list {
+    font-family: Arial, sans-serif;
+    line-height: 1.6; /* 提高可读性的行高 */
+}
+
+/* 图片标题样式 */
+.pic h3 {
+    text-align: center; /* 中心对齐 */
+    font-weight: normal; /* 字体粗细 */
+    padding: 0.5em 0; /* 上下内边距 */
+    background-color: #f2f2f2; /* 背景颜色 */
+    margin-bottom: 1em; /* 底部外边距 */
+}
+
+/* spirit样式 */
+.spirit {
+    display: flex;
+    flex-wrap: wrap; /* 允许子项目换行显示 */
+    justify-content: space-between; /* 父容器中的项目平均分布 */
+    margin-bottom: 2em; /* 底部外边距 */
+}
+
+/* 左侧文本和右侧图片样式 */
+.spleft,
+.spright {
+    flex-basis: 49%; /* 占父容器一半的宽度，留白作间隔 */
+    padding: 10px;
+}
+
+/* 图片样式 */
+.spleft img {
+    width: 100%;
+    height: auto; /* 保持原有宽高比 */
+    display: block; /* 防止图片下方空隙 */
+    margin: 0 auto 1em;
+}
+
+/* 简介列表段落样式调整 */
+.spright p {
+    font-size: 0.9em; /* 可能需要根据屏幕大小调整字体大小 */
+    text-align: justify; /* 文本两端对齐 */
+}
+
+/* 调整小屏幕布局 */
+@media (max-width: 768px) {
+    .spleft,
+    .spright {
+        flex-basis: 100%; /* 小屏幕上每项占满整行 */
+    }
+
+    /* 字体大小的调整 */
+    .spright p {
+        font-size: 1em; /* 增大字体提高小屏幕上的可读性 */
+    }
+}
+
+/* 图片过渡效果 */
+.spleft img:hover {
+    transform: scale(1.05); /* 鼠标悬停时放大 */
+    transition: transform 0.3s ease; /* 动画效果 */
+}
+
+/* .node类的样式定义 */
+.node {
+  width: 80%; /* 宽度占屏幕的80% */
+  max-width: 960px; /* 最大宽度限制 */
+  margin: 40px auto; /* 上下外边距以及居中对齐 */
+  background: #fff;
+  padding: 20px; /* 内边距 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 盒子阴影效果 */
+}
+
+/* 段落样式 */
+.node p {
+  margin: 0 0 20px; /* 下外边距 */
+  text-align: justify; /* 两端对齐 */
+}
+
+/* 图片样式 */
+.node img {
+  max-width: 100%; /* 图片最大宽度 */
+  height: auto; /* 高度自动按比例 */
+  display: block; /* 单独显示 */
+  margin: 20px auto; /* image-centered */
+}
+
+/* 响应式布局调整 */
+@media screen and (max-width: 768px) {
+  .node {
+    width: 95%; /* 更宽的屏幕显示 */
+  }
+
+  .node p {
+    text-align: left; /* 文本左对齐 */
+  }
+}
+
+/* 调整spleft样式 */
+.spleft {
+  list-style: none; /* 去掉列表项目前面的标记 */
+  display: flex; /* 弹性盒模型显示 */
+  flex-wrap: wrap; /* 允许换行 */
+  padding: 10px; /* 内边距 */
+  justify-content: space-between; /* 两端对齐 */
+}
+
+.spleft li {
+  width: calc(33.333% - 20px); /* 宽度分为三份，减去间距 */
+  margin: 10px; /* 上下左右间隔 */
+  background: #fff; /* 背景色 */
+  text-align: center; /* 文本居中 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 盒子阴影 */
+}
+
+.spleft li img {
+  max-width: 100%; /* 图片最大宽度 */
+  height: auto; /* 图片高度自动 */
+  display: block; /* 图片单独占行 */
+}
+
+.spleft li p {
+  font-size: 1em; /* 字体大小调整为适中 */
+  padding: 5px 0; /* 文本上下内边距 */
+}
+
+/* 屏幕宽度768px以下调整spleft样式 */
+@media (max-width: 768px) {
+  .spleft li {
+    width: calc(50% - 20px); /* 宽度调整为二分之一，适应小屏幕 */
+  }
+}
+
+/* 屏幕宽度480px以下调整spleft样式 */
+@media (max-width: 480px) {
+  .spleft li {
+    width: calc(100% - 20px); /* 宽度调整为单列，适应更小屏幕 */
+  }
+}
